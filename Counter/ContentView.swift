@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var isShowAlert = false
     var body: some View {
         ZStack{
-            Color.yellow
+            Color("BackgroundColor")
                 .ignoresSafeArea()
             VStack {
                 Text("\(count)")
@@ -25,7 +25,7 @@ struct ContentView: View {
                         Text("-")
                             .frame(height:  UIScreen.main.bounds.height/2.5)
                             .frame(maxWidth: .infinity)
-                            .background(.blue)
+                            .background(Color("MinusButtonColor"))
                             .foregroundColor(.white)
                             .font(.system(size: 130, weight: .bold, design: .monospaced))
                             .cornerRadius(10)
@@ -37,7 +37,7 @@ struct ContentView: View {
                         Text("+")
                             .frame(height:  UIScreen.main.bounds.height/2.5)
                             .frame(maxWidth: .infinity)
-                            .background(.green)
+                            .background(Color("PlusButtonColor"))
                             .foregroundColor(.white)
                             .font(.system(size: 130, weight: .bold, design: .monospaced))
                             .cornerRadius(10)
@@ -52,10 +52,10 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
                         .background(.white)
-                        .foregroundColor(.red)
+                        .foregroundColor(.pink)
                         .cornerRadius(10)
                         .overlay(RoundedRectangle(cornerRadius: 10)
-                            .stroke(.red, lineWidth: 1))
+                            .stroke(.pink, lineWidth: 1))
                         .alert("注意", isPresented: $isShowAlert) {
                             Button("リセットする", role: .destructive) {
                                 count = 0
